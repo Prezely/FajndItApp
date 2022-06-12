@@ -24,7 +24,7 @@ public class AddActivity extends AppCompatActivity {
 
         save_button.setOnClickListener(view -> {
             MyDatabseHelper myDB = new MyDatabseHelper(AddActivity.this);
-            myDB.dodajIzdelek("izpis", "a", 1, "a");
+            myDB.dodajIzdelek(ime_input.getText().toString().trim(), kategorija_input.getText().toString().trim(), Integer.valueOf(cena_input.getText().toString().trim()), slika_input.getText().toString().trim());
         });
 
     }
