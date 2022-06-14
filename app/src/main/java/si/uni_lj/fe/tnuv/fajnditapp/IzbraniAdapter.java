@@ -38,7 +38,7 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
 
             super(itemView);
 
-            ime = (TextView) itemView.findViewById(R.id.izbran_ime);
+            ime = (TextView) itemView.findViewById(R.id.izbran_ime_txt);
 
 
         }

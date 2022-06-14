@@ -8,15 +8,45 @@
     android:layout_height="wrap_content"
     android:padding="20dp">
 
-    <TextView
-        android:id="@+id/izbran_ime"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ime 1"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#EFEFEF"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/izbran_ime_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ime 1"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/izbran_cena_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cena"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/izbran_kolicina_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Količina"
+            android:layout_marginTop="10dp"
+            android:textColor="#A0A0A0"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/izbran_ime_txt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

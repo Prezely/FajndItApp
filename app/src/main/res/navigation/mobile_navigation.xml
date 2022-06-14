@@ -8,14 +8,14 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="si.uni_lj.fe.tnuv.fajnditapp.VozicekFragment"
+        android:name="si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_vozicek" />
+        tools:layout="@layout/fragment_iskanje" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment"
+        android:name="si.uni_lj.fe.tnuv.fajnditapp.VozicekFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_iskanje" />
+        tools:layout="@layout/fragment_vozicek" />
 
 </navigation>
