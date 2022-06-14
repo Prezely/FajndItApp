@@ -47,6 +47,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/izbran_ime_txt" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:clickable="true"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            app:layout_constraintStart_toEndOf="@+id/izbran_kolicina_txt"
+            app:layout_constraintTop_toBottomOf="@+id/izbran_ime_txt"
+            app:srcCompat="@drawable/ikona_dodaj" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:clickable="true"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            app:layout_constraintStart_toEndOf="@+id/floatingActionButton2"
+            app:layout_constraintTop_toBottomOf="@+id/izbran_ime_txt"
+            app:srcCompat="@drawable/ic_baseline_remove_24" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
