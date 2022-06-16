@@ -1,5 +1,6 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,9 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
+    private static Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        MainActivity.context = getApplicationContext();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -40,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container, fragment);
         fragmentTransaction.commit();*/
+    }
+
+    public static Context getAppContext() {
+        return MainActivity.context;
     }
 
 }

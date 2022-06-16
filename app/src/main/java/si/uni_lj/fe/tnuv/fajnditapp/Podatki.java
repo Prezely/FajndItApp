@@ -25,9 +25,9 @@ public class Podatki {
 
     public static String[] cena = new String[] {
             "1.99",
-            "2.00",
-            "3.50",
-            "2.40"
+            "2.11",
+            "3.55",
+            "2.46"
     };
 
     public static String[] slika = new String[] {

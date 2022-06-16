@@ -1,14 +1,18 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
-import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrana_imena;
+import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter {
 
@@ -47,15 +51,20 @@ public class ListAdapter extends RecyclerView.Adapter {
             slika = (TextView) itemView.findViewById(R.id.izdelek_slika_txt);
             //itemView.setOnClickListener(this);
 
-
-
             itemView.findViewById(R.id.gumb_dodaj).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    if (!izbrana_imena.contains(ime.getText().toString())) {
-                        izbrana_imena.add(ime.getText().toString());
-                        System.out.println(izbrana_imena);
+                    if (izbrani.size() == 0) {
+                        izbrani.add(new Izbrani_izdelki(id.getText().toString(), ime.getText().toString(), 1, Float.valueOf(cena.getText().toString())));
+                    }
+                    else {
+                        if (!vSeznamu(izbrani, ime.getText().toString())) {
+                            izbrani.add(new Izbrani_izdelki(id.getText().toString(), ime.getText().toString(), 1, Float.valueOf(cena.getText().toString())));
+                        }
+                        else {
+                            Toast.makeText(MainActivity.getAppContext(), ime.getText().toString() + " je že v seznamu", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             });
@@ -71,6 +80,22 @@ public class ListAdapter extends RecyclerView.Adapter {
 
         public void onClick(View view) {
 
+        }
+
+        public boolean vSeznamu(List<Izbrani_izdelki> prvi, String ime) {
+            
+            boolean notri = false;
+
+            for (int i = 0; i < prvi.size(); i++) {
+
+                if (prvi.get(i).getIme().equals(ime)) {
+                    notri = true;
+                }
+            }
+            if (notri) {
+                return true;
+            }
+            return false;
         }
     }
 }
