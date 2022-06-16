@@ -24,10 +24,10 @@ public class Podatki {
     };
 
     public static String[] cena = new String[] {
-            "1.99",
-            "2.11",
-            "3.55",
-            "2.46"
+            "199",
+            "211",
+            "355",
+            "246"
     };
 
     public static String[] slika = new String[] {

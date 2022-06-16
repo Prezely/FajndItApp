@@ -1,6 +1,10 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
 import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
+import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.podatki;
+import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.cenaVozicka;
+
+
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -30,7 +34,7 @@ public class ListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return Podatki.id.length;
+        return podatki.size();
     }
 
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -55,12 +59,16 @@ public class ListAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View view) {
 
+                    int ix = indeks(podatki, ime.getText().toString());
+
                     if (izbrani.size() == 0) {
-                        izbrani.add(new Izbrani_izdelki(id.getText().toString(), ime.getText().toString(), 1, Float.valueOf(cena.getText().toString())));
+                        izbrani.add(new Izbrani_izdelki(podatki.get(ix).getId(), podatki.get(ix).getIme(), 1, podatki.get(ix).getCena(), podatki.get(ix).getCena()));
+                        cenaVozicka = cenaVozicka + podatki.get(ix).getCena();
                     }
                     else {
                         if (!vSeznamu(izbrani, ime.getText().toString())) {
-                            izbrani.add(new Izbrani_izdelki(id.getText().toString(), ime.getText().toString(), 1, Float.valueOf(cena.getText().toString())));
+                            izbrani.add(new Izbrani_izdelki(podatki.get(ix).getId(), podatki.get(ix).getIme(), 1, podatki.get(ix).getCena(), podatki.get(ix).getCena()));
+                            cenaVozicka = cenaVozicka + podatki.get(ix).getCena();
                         }
                         else {
                             Toast.makeText(MainActivity.getAppContext(), ime.getText().toString() + " je že v seznamu", Toast.LENGTH_SHORT).show();
@@ -71,11 +79,11 @@ public class ListAdapter extends RecyclerView.Adapter {
         }
 
         public void bindView(int position) {
-            id.setText(Podatki.id[position]);
-            ime.setText(Podatki.ime[position]);
-            kategorija.setText(Podatki.kategorija[position]);
-            cena.setText(Podatki.cena[position]);
-            slika.setText(Podatki.slika[position]);
+            id.setText(podatki.get(position).getId());
+            ime.setText(podatki.get(position).getIme());
+            kategorija.setText(podatki.get(position).getKategorija());
+            cena.setText(String.valueOf((float) podatki.get(position).getCena()/100) + " €");
+            slika.setText("111");
         }
 
         public void onClick(View view) {
@@ -96,6 +104,18 @@ public class ListAdapter extends RecyclerView.Adapter {
                 return true;
             }
             return false;
+
+        }
+
+        public int indeks(List<Podatki_izdelki> podatki, String ime) {
+            for (int i = 0; i < podatki.size(); i++) {
+                if (podatki.get(i).getIme().equals(ime)) {
+                    return i;
+                }
+            }
+            return 0;
         }
     }
+
+
 }

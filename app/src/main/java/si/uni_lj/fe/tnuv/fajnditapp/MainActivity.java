@@ -15,9 +15,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.podatki;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import si.uni_lj.fe.tnuv.fajnditapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
 
     private ActivityMainBinding binding;
 
@@ -25,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        podatki.add(new Podatki_izdelki("0", "Pomarančni sok", "Pijaca", 159));
+        podatki.add(new Podatki_izdelki("1", "Jagodni sok", "Pijaca", 179));
+        podatki.add(new Podatki_izdelki("2", "Jabolčni sok", "Pijaca", 199));
+        podatki.add(new Podatki_izdelki("3", "Alpsko mleko 1,5", "Mleko, jajca in mlečni izdelki", 169));
+        podatki.add(new Podatki_izdelki("4", "Riževo mleko", "Mleko, jajca in mlečni izdelki", 215));
+
+
         super.onCreate(savedInstanceState);
 
         MainActivity.context = getApplicationContext();

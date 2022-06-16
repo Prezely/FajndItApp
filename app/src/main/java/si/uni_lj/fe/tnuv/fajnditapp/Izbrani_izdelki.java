@@ -10,13 +10,15 @@ public class Izbrani_izdelki {
     private String uid;
     private String uime;
     private int ukolicina;
-    private float ucena;
+    private int ucena;
+    private int uogCena;
 
-    public Izbrani_izdelki(String id, String ime, int kolicina, float cena) {
+    public Izbrani_izdelki(String id, String ime, int kolicina, int cena, int ogCena) {
         uid = id;
         uime = ime;
         ukolicina = kolicina;
         ucena = cena;
+        uogCena = ogCena;
     }
 
     public void setId(String id) { uid = id; }
@@ -28,6 +30,9 @@ public class Izbrani_izdelki {
     public void setKolicina(int kolicina) { ukolicina = kolicina; }
     public int getKolicina() { return ukolicina; }
 
-    public void setCena(float cena) { ucena = cena; }
-    public float getCena() { return ucena; }
+    public void setCena(int cena) { ucena = cena; }
+    public int getCena() { return ucena; }
+
+    public void setOgCena(int ogCena) { uogCena = ogCena; }
+    public int getOgCena() { return uogCena; }
 }
