@@ -4,21 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/alpskoMleko15_background.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/barva_ikone.xml" value="0.236" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/ikona_vozicek.xml" value="0.236" />
+        <entry key="app/src/main/res/drawable/robovi.xml" value="0.2535" />
+        <entry key="app/src/main/res/drawable/robovisearch.xml" value="0.2395" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2354862157849298" />
         <entry key="app/src/main/res/layout/fragment_iskanje.xml" value="0.2385238647460938" />
-        <entry key="app/src/main/res/layout/fragment_vozicek.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_vozicek.xml" value="0.375" />
         <entry key="app/src/main/res/layout/list_izbran.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_izdelek.xml" value="0.33885867731358" />
         <entry key="app/src/main/res/layout/my_row.xml" value="0.2102081298828123" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/menu/meni.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/alpskoMleko15.xml" value="0.2535" />
       </map>
     </option>
   </component>

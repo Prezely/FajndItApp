@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        podatki.add(new Podatki_izdelki("0", "Pomarančni sok", "Pijaca", 159));
-        podatki.add(new Podatki_izdelki("1", "Jagodni sok", "Pijaca", 179));
-        podatki.add(new Podatki_izdelki("2", "Jabolčni sok", "Pijaca", 199));
-        podatki.add(new Podatki_izdelki("3", "Alpsko mleko 1,5", "Mleko, jajca in mlečni izdelki", 169));
-        podatki.add(new Podatki_izdelki("4", "Riževo mleko", "Mleko, jajca in mlečni izdelki", 215));
+        podatki.add(new Podatki_izdelki("0", "Pomarančni sok", "Pijaca", 159, R.drawable.pomarancnisok));
+        podatki.add(new Podatki_izdelki("1", "Jagodni sok", "Pijaca", 179, R.drawable.jagodnisok));
+        podatki.add(new Podatki_izdelki("2", "Jabolčni sok", "Pijaca", 199, R.drawable.jabolcnisok));
+        podatki.add(new Podatki_izdelki("3", "Alpsko mleko 1,5", "Mleko, jajca in mlečni izdelki", 169, R.drawable.alpskomlekoena));
+        podatki.add(new Podatki_izdelki("4", "Riževo mleko", "Mleko, jajca in mlečni izdelki", 215, R.drawable.rizevomleko));
 
 
         super.onCreate(savedInstanceState);
@@ -64,5 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public static Context getAppContext() {
         return MainActivity.context;
     }
+
+
 
 }

@@ -6,13 +6,17 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EFEFEF"
-        android:padding="10dp">
+        android:background="@drawable/robovi"
+        android:padding="15dp">
 
         <TextView
             android:id="@+id/izbran_ime_txt"

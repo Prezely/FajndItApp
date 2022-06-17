@@ -14,13 +14,15 @@ public class Podatki_izdelki {
     private String uime;
     private String ukategorija;
     private int ucena;
+    private int uslika;
 
 
-    public Podatki_izdelki(String id, String ime, String kategorija, int cena) {
+    public Podatki_izdelki(String id, String ime, String kategorija, int cena, int slika) {
         uid = id;
         uime = ime;
         ukategorija = kategorija;
         ucena = cena;
+        uslika = slika;
     }
 
     public void setId(String id) { uid = id; }
@@ -34,5 +36,8 @@ public class Podatki_izdelki {
 
     public void setCena(int cena) { ucena = cena; }
     public int getCena() { return ucena; }
+
+    public void setSlika(int slika) { uslika = slika; }
+    public int getSlika() { return uslika; }
 
 }

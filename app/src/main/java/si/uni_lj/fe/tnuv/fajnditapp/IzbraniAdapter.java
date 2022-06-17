@@ -6,9 +6,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
+
 import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
 import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.podatki;
 import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.cenaVozicka;
+import static si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment.izracunajSkupnoCeno;
+import static si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment.skupaj;
 
 
 import androidx.annotation.NonNull;
@@ -59,8 +66,7 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View view) {
 
-                    System.out.println("IZ PODATKOV  " + podatki.get(1).getIme());
-
+                    //System.out.println("IZ PODATKOV  " + podatki.get(1).getIme());
 
                     for(int i = 0; i<izbrani.size(); i++){
                         if(izbrani.get(i).getIme().equals(ime.getText().toString())){
@@ -68,6 +74,7 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
                             izbrani.get(i).setCena(izbrani.get(i).getCena() + izbrani.get(i).getOgCena());
                             cenaVozicka = cenaVozicka + izbrani.get(i).getOgCena();
                             notifyDataSetChanged();
+                            izracunajSkupnoCeno(skupaj);
                         }
                     }
                 }
@@ -82,12 +89,11 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
                             izbrani.get(i).setCena(izbrani.get(i).getCena() - izbrani.get(i).getOgCena());
                             cenaVozicka = cenaVozicka - izbrani.get(i).getOgCena();
                             notifyDataSetChanged();
+                            izracunajSkupnoCeno(skupaj);
                         }
                     }
                 }
             });
-
-
         }
 
         public void bindView(int position) {
@@ -99,7 +105,6 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
         public void onClick(View view) {
 
         }
-
 
     }
 }
