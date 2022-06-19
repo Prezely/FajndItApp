@@ -45,11 +45,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Količina"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:textColor="#A0A0A0"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/izbran_ime_txt" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/gumb_povecajKolicino"
             app:backgroundTint="@color/modra"

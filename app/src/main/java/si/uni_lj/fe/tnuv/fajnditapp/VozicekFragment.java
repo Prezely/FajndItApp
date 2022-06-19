@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,14 +28,21 @@ public class VozicekFragment extends Fragment {
     private FragmentVozicekBinding binding;
     private ListAdapter listAdapter;
 
+    int[] slikeKategorij;
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_vozicek, container, false);
 
+        slikeKategorij = new int[]{R.drawable.rendernavadn,R.drawable.rendersadje, R.drawable.renderpijaca, R.drawable.rendermeso, R.drawable.rendermleko, R.drawable.renderzacimbe, R.drawable.renderzelenjava};
+
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycleView);
+
+        ConstraintLayout constraintLayout = (ConstraintLayout) view.findViewById(R.id.iskanjeFragment);
 
         SearchView searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -45,9 +53,10 @@ public class VozicekFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 if(newText.length() == 0){
                     posljiPrazno();
+                    constraintLayout.setBackgroundResource(R.drawable.rendernavadn);
                 }
                 else{
-                    filterList(newText);
+                    filterList(newText, constraintLayout);
                 }
 
                 return true;
@@ -56,14 +65,21 @@ public class VozicekFragment extends Fragment {
 
         listAdapter = new ListAdapter();
         recyclerView.setAdapter(listAdapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+
         recyclerView.setLayoutManager(layoutManager);
 
         return view;
     }
 
-    private void filterList(String text) {
+    public int posodobiSliko() {
+        return 1;
+    }
+
+    private void filterList(String text, ConstraintLayout constraintLayout) {
         List<Podatki_izdelki> filtrirani = new ArrayList<>();
+
         for (int i = 0; i < podatki.size(); i++) {
             if(podatki.get(i).getIme().toLowerCase().contains(text.toLowerCase())){
                 filtrirani.add(podatki.get(i));
@@ -71,8 +87,19 @@ public class VozicekFragment extends Fragment {
         }
         if(!filtrirani.isEmpty()){
             listAdapter.setFilteredList(filtrirani);
+
+            if (filtrirani.get(0).getKategorija().equals("Pijača")) {
+                constraintLayout.setBackgroundResource(R.drawable.renderpijaca);
+            }
+            else if (filtrirani.get(0).getKategorija().equals("Mleko, jajca in mlečni izdelki")) {
+                constraintLayout.setBackgroundResource(R.drawable.rendermleko);
+            }
+
+
         }
         else{
+            posljiPrazno();
+            constraintLayout.setBackgroundResource(R.drawable.rendernavadn);
             Toast.makeText(getContext(), "Ni najdenih zadetkov.", Toast.LENGTH_SHORT).show();
         }
 
@@ -81,7 +108,6 @@ public class VozicekFragment extends Fragment {
     public void posljiPrazno(){
         List<Podatki_izdelki> prazna = new ArrayList<>();
         listAdapter.setFilteredList(prazna);
-        System.out.println("prazna tabela:");
     }
 
     @Override
