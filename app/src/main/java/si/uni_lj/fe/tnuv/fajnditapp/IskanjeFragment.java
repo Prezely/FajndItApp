@@ -10,6 +10,7 @@ import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
 import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.cenaVozicka;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +38,16 @@ public class IskanjeFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
+        ConstraintLayout dodajArtikleTxt = (ConstraintLayout) view.findViewById(R.id.dodajArtkleTxt);
+
+
+        // ČE JE VOZIČEK PRAZEN JE NA SREDINI ZASLONA PRIKAZAN TEXT "DODAJ V VOZIČEK"
+        if (izbrani.size() != 0) {
+            dodajArtikleTxt.setVisibility(View.INVISIBLE);
+        } else {
+            dodajArtikleTxt.setVisibility(View.VISIBLE);
+        }
+
         return view;
     }
 
@@ -46,6 +57,7 @@ public class IskanjeFragment extends Fragment {
         binding = null;
     }
 
+    // NASTAVLJANJE SKUPNE CENE NA SPODNJEM DELU ZASLONA V FRAGMENTU VOZIČEK
     public static void izracunajSkupnoCeno(TextView skupaj) {
 
         int cena = 0;

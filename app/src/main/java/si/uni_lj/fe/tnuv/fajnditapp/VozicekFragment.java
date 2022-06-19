@@ -39,7 +39,9 @@ public class VozicekFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycleView);
 
         ConstraintLayout constraintLayout = (ConstraintLayout) view.findViewById(R.id.iskanjeFragment);
+        ConstraintLayout brezZadetkov = (ConstraintLayout) view.findViewById(R.id.brezZadetkov);
 
+        // ISKALNA VRSTICA
         SearchView searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
 
@@ -53,10 +55,12 @@ public class VozicekFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 if(newText.length() == 0){
                     posljiPrazno();
+                    brezZadetkov.setVisibility(View.VISIBLE);
                     constraintLayout.setBackgroundResource(R.drawable.rendernavadn);
                 }
                 else{
-                    filterList(newText, constraintLayout);
+                    brezZadetkov.setVisibility(View.INVISIBLE);
+                    filterList(newText, constraintLayout, brezZadetkov);
                 }
 
                 return true;
@@ -65,19 +69,14 @@ public class VozicekFragment extends Fragment {
 
         listAdapter = new ListAdapter();
         recyclerView.setAdapter(listAdapter);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-
         recyclerView.setLayoutManager(layoutManager);
 
         return view;
     }
 
-    public int posodobiSliko() {
-        return 1;
-    }
-
-    private void filterList(String text, ConstraintLayout constraintLayout) {
+    // FILTRIRANJE IZDELKOV Z SEARCHBAROM, USTVARJANJE NOVE TABELE IN PRIKAZ ZADETKOV ISKANJA
+    private void filterList(String text, ConstraintLayout constraintLayout, ConstraintLayout brezZadetkov) {
         List<Podatki_izdelki> filtrirani = new ArrayList<>();
 
         for (int i = 0; i < podatki.size(); i++) {
@@ -85,6 +84,7 @@ public class VozicekFragment extends Fragment {
                 filtrirani.add(podatki.get(i));
             }
         }
+
         if(!filtrirani.isEmpty()){
             listAdapter.setFilteredList(filtrirani);
 
@@ -94,17 +94,16 @@ public class VozicekFragment extends Fragment {
             else if (filtrirani.get(0).getKategorija().equals("Mleko, jajca in mlečni izdelki")) {
                 constraintLayout.setBackgroundResource(R.drawable.rendermleko);
             }
-
-
         }
         else{
             posljiPrazno();
+            brezZadetkov.setVisibility(View.VISIBLE);
             constraintLayout.setBackgroundResource(R.drawable.rendernavadn);
             Toast.makeText(getContext(), "Ni najdenih zadetkov.", Toast.LENGTH_SHORT).show();
         }
-
     }
 
+    // USTVARIMO NOVO PRAZNO TABELO IN JO PRIKAŽEMO MED ZADETKI ISKANJA
     public void posljiPrazno(){
         List<Podatki_izdelki> prazna = new ArrayList<>();
         listAdapter.setFilteredList(prazna);
@@ -115,6 +114,4 @@ public class VozicekFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
 }

@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="350dp"
-    android:layout_height="wrap_content"
-    android:paddingTop="20dp"
+    android:layout_height="250dp"
     android:padding="10dp">
 
 
