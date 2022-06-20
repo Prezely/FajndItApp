@@ -51,25 +51,44 @@
         android:id="@+id/brezZadetkov"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:background="@drawable/robovi"
         android:layout_marginBottom="28dp"
-        android:layout_marginLeft="10dp"
+        android:background="@drawable/robovi"
+        android:visibility="visible"
         android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
-        android:visibility="visible">
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2">
 
-
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pošči artikel"
+            android:background="@drawable/robovi"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pošči artikel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ikonaSearch"
+                android:layout_marginTop="5dp"/>
+
+            <ImageView
+                android:id="@+id/ikonaSearch"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ikona_velikasearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>

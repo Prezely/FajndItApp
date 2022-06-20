@@ -1,8 +1,11 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -105,6 +108,5 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
         public void onClick(View view) {
 
         }
-
     }
 }

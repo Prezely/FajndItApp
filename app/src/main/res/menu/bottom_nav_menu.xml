@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ikona_vozicek"
-        android:title="Voziček" />
+        android:icon="@drawable/ikona_iskanje"
+        android:title="Iskanje" />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ikona_iskanje"
-        android:title="Iskanje" />
+        android:icon="@drawable/ikona_vozicek"
+        android:title="Voziček" />
 
 
 </menu>

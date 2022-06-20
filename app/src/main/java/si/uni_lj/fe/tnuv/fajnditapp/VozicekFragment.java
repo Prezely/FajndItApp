@@ -43,11 +43,13 @@ public class VozicekFragment extends Fragment {
 
         // ISKALNA VRSTICA
         SearchView searchView = view.findViewById(R.id.searchView);
-        searchView.clearFocus();
+        searchView.setFocusable(false);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+
+
                 return false;
             }
 

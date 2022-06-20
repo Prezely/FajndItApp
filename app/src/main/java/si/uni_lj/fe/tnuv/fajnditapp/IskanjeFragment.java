@@ -1,9 +1,11 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
 import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
@@ -65,9 +67,10 @@ public class IskanjeFragment extends Fragment {
         for (int i = 0; i < izbrani.size(); i++) {
             cena = cena + izbrani.get(i).getCena();
         }
-
         skupaj.setText(String.valueOf((float) cena/100) + " €");
     }
+
+
 
 
 }
