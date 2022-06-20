@@ -1,9 +1,11 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
 import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
@@ -23,6 +25,7 @@ public class IskanjeFragment extends Fragment {
 
     private FragmentIskanjeBinding binding;
     public static TextView skupaj;
+    public static ConstraintLayout dodajArtikleTxt;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
@@ -38,15 +41,11 @@ public class IskanjeFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        ConstraintLayout dodajArtikleTxt = (ConstraintLayout) view.findViewById(R.id.dodajArtkleTxt);
+        dodajArtikleTxt = (ConstraintLayout) view.findViewById(R.id.dodajArtkleTxt);
 
 
         // ČE JE VOZIČEK PRAZEN JE NA SREDINI ZASLONA PRIKAZAN TEXT "DODAJ V VOZIČEK"
-        if (izbrani.size() != 0) {
-            dodajArtikleTxt.setVisibility(View.INVISIBLE);
-        } else {
-            dodajArtikleTxt.setVisibility(View.VISIBLE);
-        }
+        nastaviVidnost(dodajArtikleTxt);
 
         return view;
     }
@@ -65,9 +64,18 @@ public class IskanjeFragment extends Fragment {
         for (int i = 0; i < izbrani.size(); i++) {
             cena = cena + izbrani.get(i).getCena();
         }
-
         skupaj.setText(String.valueOf((float) cena/100) + " €");
     }
+
+    public static void nastaviVidnost(ConstraintLayout dodajArtikleTxt) {
+        if (izbrani.size() != 0) {
+            dodajArtikleTxt.setVisibility(View.INVISIBLE);
+        } else {
+            dodajArtikleTxt.setVisibility(View.VISIBLE);
+        }
+    }
+
+
 
 
 }
