@@ -47,12 +47,12 @@ public class VozicekFragment extends Fragment {
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
+            public boolean onQueryTextChange(String query) {
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
+            public boolean onQueryTextSubmit(String newText) {
                 if(newText.length() == 0){
                     posljiPrazno();
                     brezZadetkov.setVisibility(View.VISIBLE);
