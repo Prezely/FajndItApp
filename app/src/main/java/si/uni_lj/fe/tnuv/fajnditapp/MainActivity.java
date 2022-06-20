@@ -1,7 +1,9 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import java.io.IOException;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,6 +19,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.podatki;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,20 +35,46 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private static Context context;
+    private static Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // PODATKI
-        podatki.add(new Podatki_izdelki("0", "Pomarančni sok", "Pijača", 159, R.drawable.pomarancnisok));
-        podatki.add(new Podatki_izdelki("1", "Jagodni sok", "Pijača", 179, R.drawable.jagodnisok));
-        podatki.add(new Podatki_izdelki("2", "Jabolčni sok", "Pijača", 199, R.drawable.jabolcnisok));
-        podatki.add(new Podatki_izdelki("3", "Alpsko mleko 1,5", "Mleko, jajca in mlečni izdelki", 169, R.drawable.alpskomlekoena));
-        podatki.add(new Podatki_izdelki("4", "Riževo mleko", "Mleko, jajca in mlečni izdelki", 215, R.drawable.rizevomleko));
-
         super.onCreate(savedInstanceState);
 
         MainActivity.context = getApplicationContext();
+
+        // BRANJE PODATKOV IZ JSON DATOTEKE
+        resources = context.getResources();
+
+        String json;
+        try {
+            InputStream is = getAssets().open("podatkiizdelki.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            System.out.println(is);
+            System.out.println(size);
+
+            json = new String(buffer, "UTF-8");
+            JSONObject object = new JSONObject(json);
+            JSONArray jsonArray = object.getJSONArray("podatki");
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                String imeSlike = obj.getString("slika");
+                int idSlike = resources.getIdentifier(imeSlike, "drawable", context.getPackageName());
+                podatki.add(new Podatki_izdelki(obj.getString("id"), obj.getString("ime"), obj.getString("kategorija"), obj.getInt("cena"), idSlike));
+            }
+
+        } catch(IOException e) {
+            e.printStackTrace();
+        } catch(JSONException e) {
+            e.printStackTrace();
+        }
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -64,7 +97,5 @@ public class MainActivity extends AppCompatActivity {
     public static Context getAppContext() {
         return MainActivity.context;
     }
-
-
 
 }

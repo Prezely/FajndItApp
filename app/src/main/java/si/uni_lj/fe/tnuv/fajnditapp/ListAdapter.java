@@ -29,7 +29,6 @@ public class ListAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
