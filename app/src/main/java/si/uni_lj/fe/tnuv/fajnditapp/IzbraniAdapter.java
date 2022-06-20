@@ -14,11 +14,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;
 
+import static si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment.dodajArtikleTxt;
 import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
 import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.podatki;
 import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.cenaVozicka;
 import static si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment.izracunajSkupnoCeno;
 import static si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment.skupaj;
+import static si.uni_lj.fe.tnuv.fajnditapp.IskanjeFragment.nastaviVidnost;
 
 
 import androidx.annotation.NonNull;
@@ -87,6 +89,7 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
                         izbrani.remove(izbrani.get(getAdapterPosition()));
                         notifyDataSetChanged();
                         izracunajSkupnoCeno(skupaj);
+                        nastaviVidnost(dodajArtikleTxt);
                     }
                 }
             });

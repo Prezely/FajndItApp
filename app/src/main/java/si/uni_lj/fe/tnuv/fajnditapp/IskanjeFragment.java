@@ -25,6 +25,7 @@ public class IskanjeFragment extends Fragment {
 
     private FragmentIskanjeBinding binding;
     public static TextView skupaj;
+    public static ConstraintLayout dodajArtikleTxt;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
@@ -40,15 +41,11 @@ public class IskanjeFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        ConstraintLayout dodajArtikleTxt = (ConstraintLayout) view.findViewById(R.id.dodajArtkleTxt);
+        dodajArtikleTxt = (ConstraintLayout) view.findViewById(R.id.dodajArtkleTxt);
 
 
         // ČE JE VOZIČEK PRAZEN JE NA SREDINI ZASLONA PRIKAZAN TEXT "DODAJ V VOZIČEK"
-        if (izbrani.size() != 0) {
-            dodajArtikleTxt.setVisibility(View.INVISIBLE);
-        } else {
-            dodajArtikleTxt.setVisibility(View.VISIBLE);
-        }
+        nastaviVidnost(dodajArtikleTxt);
 
         return view;
     }
@@ -68,6 +65,14 @@ public class IskanjeFragment extends Fragment {
             cena = cena + izbrani.get(i).getCena();
         }
         skupaj.setText(String.valueOf((float) cena/100) + " €");
+    }
+
+    public static void nastaviVidnost(ConstraintLayout dodajArtikleTxt) {
+        if (izbrani.size() != 0) {
+            dodajArtikleTxt.setVisibility(View.INVISIBLE);
+        } else {
+            dodajArtikleTxt.setVisibility(View.VISIBLE);
+        }
     }
 
 
