@@ -28,13 +28,9 @@ public class VozicekFragment extends Fragment {
     private FragmentVozicekBinding binding;
     private ListAdapter listAdapter;
 
-    int[] slikeKategorij;
-
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_vozicek, container, false);
-
-        slikeKategorij = new int[]{R.drawable.rendernavadn,R.drawable.rendersadje, R.drawable.renderpijaca, R.drawable.rendermeso, R.drawable.rendermleko, R.drawable.renderzacimbe, R.drawable.renderzelenjava};
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycleView);
 
@@ -48,8 +44,6 @@ public class VozicekFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
-
                 return false;
             }
 

@@ -54,9 +54,6 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
         private TextView kolicina;
         private TextView cena;
 
-
-        private int rezultat = 0;
-
         public ListViewHolder(View itemView) {
 
             super(itemView);
@@ -68,32 +65,28 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
             itemView.findViewById(R.id.gumb_povecajKolicino).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    //System.out.println("IZ PODATKOV  " + podatki.get(1).getIme());
-
-                    for(int i = 0; i<izbrani.size(); i++){
-                        if(izbrani.get(i).getIme().equals(ime.getText().toString())){
-                            izbrani.get(i).setKolicina(izbrani.get(i).getKolicina() + 1);
-                            izbrani.get(i).setCena(izbrani.get(i).getCena() + izbrani.get(i).getOgCena());
-                            cenaVozicka = cenaVozicka + izbrani.get(i).getOgCena();
-                            notifyDataSetChanged();
-                            izracunajSkupnoCeno(skupaj);
-                        }
-                    }
+                    izbrani.get(getAdapterPosition()).setKolicina(izbrani.get(getAdapterPosition()).getKolicina() + 1);
+                    izbrani.get(getAdapterPosition()).setCena(izbrani.get(getAdapterPosition()).getCena() + izbrani.get(getAdapterPosition()).getOgCena());
+                    cenaVozicka = cenaVozicka + izbrani.get(getAdapterPosition()).getOgCena();
+                    notifyDataSetChanged();
+                    izracunajSkupnoCeno(skupaj);
                 }
             });
 
             itemView.findViewById(R.id.gumb_zmanjsajKolicino).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for(int i = 0; i<izbrani.size(); i++){
-                        if(izbrani.get(i).getIme().equals(ime.getText().toString()) && izbrani.get(i).getKolicina() > 1){
-                            izbrani.get(i).setKolicina(izbrani.get(i).getKolicina() - 1);
-                            izbrani.get(i).setCena(izbrani.get(i).getCena() - izbrani.get(i).getOgCena());
-                            cenaVozicka = cenaVozicka - izbrani.get(i).getOgCena();
-                            notifyDataSetChanged();
-                            izracunajSkupnoCeno(skupaj);
-                        }
+                    if(izbrani.get(getAdapterPosition()).getKolicina() > 1){
+                        izbrani.get(getAdapterPosition()).setKolicina(izbrani.get(getAdapterPosition()).getKolicina() - 1);
+                        izbrani.get(getAdapterPosition()).setCena(izbrani.get(getAdapterPosition()).getCena() - izbrani.get(getAdapterPosition()).getOgCena());
+                        cenaVozicka = cenaVozicka - izbrani.get(getAdapterPosition()).getOgCena();
+                        notifyDataSetChanged();
+                        izracunajSkupnoCeno(skupaj);
+                    }
+                    else if (izbrani.get(getAdapterPosition()).getKolicina() == 1) {
+                        izbrani.remove(izbrani.get(getAdapterPosition()));
+                        notifyDataSetChanged();
+                        izracunajSkupnoCeno(skupaj);
                     }
                 }
             });
