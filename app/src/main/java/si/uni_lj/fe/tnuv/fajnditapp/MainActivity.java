@@ -55,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
             is.read(buffer);
             is.close();
 
-            System.out.println(is);
-            System.out.println(size);
-
             json = new String(buffer, "UTF-8");
             JSONObject object = new JSONObject(json);
             JSONArray jsonArray = object.getJSONArray("podatki");

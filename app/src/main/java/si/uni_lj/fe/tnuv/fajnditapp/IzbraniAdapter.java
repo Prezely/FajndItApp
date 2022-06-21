@@ -1,5 +1,6 @@
 package si.uni_lj.fe.tnuv.fajnditapp;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,9 +57,11 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
         private TextView kolicina;
         private TextView cena;
 
+
         public ListViewHolder(View itemView) {
 
             super(itemView);
+
 
             ime = (TextView) itemView.findViewById(R.id.izbran_ime_txt);
             kolicina = (TextView) itemView.findViewById(R.id.izbran_kolicina_txt);
@@ -86,10 +89,7 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
                         izracunajSkupnoCeno(skupaj);
                     }
                     else if (izbrani.get(getAdapterPosition()).getKolicina() == 1) {
-                        izbrani.remove(izbrani.get(getAdapterPosition()));
-                        notifyDataSetChanged();
-                        izracunajSkupnoCeno(skupaj);
-                        nastaviVidnost(dodajArtikleTxt);
+                        prikaziDialog(view);
                     }
                 }
             });
@@ -102,6 +102,35 @@ public class IzbraniAdapter extends RecyclerView.Adapter {
         }
 
         public void onClick(View view) {
+
+        }
+
+        public void prikaziDialog(View view) {
+            Dialog dialog = new Dialog(view.getContext());
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(true);
+            dialog.setContentView(R.layout.dialog);
+            dialog.show();
+
+            Button prekliciButton = dialog.findViewById(R.id.preklici);
+            prekliciButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
+
+            Button potrdiButton = dialog.findViewById(R.id.potrdi);
+            potrdiButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    izbrani.remove(izbrani.get(getAdapterPosition()));
+                    notifyDataSetChanged();
+                    izracunajSkupnoCeno(skupaj);
+                    nastaviVidnost(dodajArtikleTxt);
+                    dialog.dismiss();
+                }
+            });
 
         }
     }

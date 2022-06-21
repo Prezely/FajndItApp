@@ -90,6 +90,19 @@ public class VozicekFragment extends Fragment {
             else if (filtrirani.get(0).getKategorija().equals("Mleko, jajca in mlečni izdelki")) {
                 constraintLayout.setBackgroundResource(R.drawable.rendermleko);
             }
+            else if (filtrirani.get(0).getKategorija().equals("Sadje")) {
+                constraintLayout.setBackgroundResource(R.drawable.rendersadje);
+            }
+            else if (filtrirani.get(0).getKategorija().equals("Zelenjava")) {
+                constraintLayout.setBackgroundResource(R.drawable.renderzelenjava);
+            }
+            else if (filtrirani.get(0).getKategorija().equals("Začimbe")) {
+                constraintLayout.setBackgroundResource(R.drawable.renderzacimbe);
+            }
+            else if (filtrirani.get(0).getKategorija().equals("Meso")) {
+                constraintLayout.setBackgroundResource(R.drawable.rendermeso);
+            }
+
         }
         else{
             posljiPrazno();

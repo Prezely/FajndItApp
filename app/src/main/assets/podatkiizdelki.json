@@ -2,12 +2,110 @@
 
   "podatki": [
 
-  { "id":"0",
-    "ime":"Pomarančni sok",
-    "kategorija":"Pijača",
-    "cena":"159",
-    "slika": "pomarancnisok"
-  }
+    { "id":"0",
+      "ime":"Pomarančni sok",
+      "kategorija":"Pijača",
+      "cena":"159",
+      "slika": "pomarancnisok"
+    },
 
+    { "id":"1",
+      "ime":"Jagodni sok",
+      "kategorija":"Pijača",
+      "cena":"179",
+      "slika":"jagodnisok"
+    },
+
+    { "id":"2",
+      "ime":"Jabolčni sok",
+      "kategorija":"Pijača",
+      "cena":"199",
+      "slika":"jabolcnisok"
+    },
+
+    { "id":"3",
+      "ime":"Alpsko mleko 1,5",
+      "kategorija":"Mleko, jajca in mlečni izdelki",
+      "cena":"169",
+      "slika":"alpskomlekoena"
+    },
+
+    { "id":"4",
+      "ime":"Riževo mleko",
+      "kategorija":"Mleko, jajca in mlečni izdelki",
+      "cena":"215",
+      "slika":"rizevomleko"
+    },
+
+    { "id":"5",
+      "ime":"Sir Jošt, 370g",
+      "kategorija":"Mleko, jajca in mlečni izdelki",
+      "cena":"499",
+      "slika":"sirjost"
+    },
+
+    { "id":"6",
+      "ime":"Banane",
+      "kategorija":"Sadje",
+      "cena":"139",
+      "slika":"banane"
+    },
+
+
+    { "id":"7",
+      "ime":"Nakterine",
+      "kategorija":"Sadje",
+      "cena":"329",
+      "slika":"naktarine"
+    },
+
+    { "id":"8",
+      "ime":"Paradižnik v grozdu",
+      "kategorija":"Zelenjava",
+      "cena":"249",
+      "slika":"paradiznik"
+    },
+
+    { "id":"9",
+      "ime":"Solata ledenka",
+      "kategorija":"Zelenjava",
+      "cena":"119",
+      "slika":"ledenka"
+    },
+
+    { "id":"10",
+      "ime":"Mleti česen",
+      "kategorija":"Začimbe",
+      "cena":"279",
+      "slika":"cesen"
+    },
+
+    { "id":"11",
+      "ime":"Drobljena bazilika",
+      "kategorija":"Začimbe",
+      "cena":"119",
+      "slika":"bazilika"
+    },
+
+    { "id":"12",
+      "ime":"Piščančji medaljoni",
+      "kategorija":"Meso",
+      "cena":"499",
+      "slika":"piscanec"
+    },
+
+    { "id":"13",
+      "ime":"Mladi goveji rib-eye steak, suho zorjeno, Z'Dežele, pakirano",
+      "kategorija":"Meso",
+      "cena":"499",
+      "slika":"piscanec"
+    },
+
+    { "id":"14",
+      "ime":"Alpsko mleko 3,5",
+      "kategorija":"Mleko, jajca in mlečni izdelki",
+      "cena":"170",
+      "slika":"alpskomlekotri"
+    }
   ]
 }
