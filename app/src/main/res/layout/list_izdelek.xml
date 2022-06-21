@@ -6,7 +6,8 @@
     android:orientation="horizontal"
     android:layout_width="350dp"
     android:layout_height="250dp"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:id="@+id/karticaIzdelka">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

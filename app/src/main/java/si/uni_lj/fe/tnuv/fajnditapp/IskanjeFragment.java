@@ -26,6 +26,7 @@ public class IskanjeFragment extends Fragment {
     private FragmentIskanjeBinding binding;
     public static TextView skupaj;
     public static ConstraintLayout dodajArtikleTxt;
+    public static ConstraintLayout katicaIzdelka;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
@@ -42,6 +43,7 @@ public class IskanjeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         dodajArtikleTxt = (ConstraintLayout) view.findViewById(R.id.dodajArtkleTxt);
+        katicaIzdelka = (ConstraintLayout) view.findViewById(R.id.karticaIzdelka);
 
 
         // ČE JE VOZIČEK PRAZEN JE NA SREDINI ZASLONA PRIKAZAN TEXT "DODAJ V VOZIČEK"

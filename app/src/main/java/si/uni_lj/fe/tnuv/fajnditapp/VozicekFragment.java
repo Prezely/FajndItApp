@@ -13,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static si.uni_lj.fe.tnuv.fajnditapp.Izbrani_izdelki.izbrani;
 import static si.uni_lj.fe.tnuv.fajnditapp.Podatki_izdelki.podatki;
 
 
@@ -36,6 +38,7 @@ public class VozicekFragment extends Fragment {
 
         ConstraintLayout constraintLayout = (ConstraintLayout) view.findViewById(R.id.iskanjeFragment);
         ConstraintLayout brezZadetkov = (ConstraintLayout) view.findViewById(R.id.brezZadetkov);
+
 
         // ISKALNA VRSTICA
         SearchView searchView = view.findViewById(R.id.searchView);
